@@ -1,0 +1,19 @@
+<%- include('../partials/header.ejs') %>
+
+<form action="/authors/edit/<%= author.id %>" method="POST" class="w-50 p-4 mt-5 shadow m-auto bg-light rounded" style="max-width: 500px;">>
+    <h3 class="mb-3">Edit Author Info</h3>
+    <hr>
+    <div class="mb-3">
+        <label for="name-input">Name</label>
+        <input type="text" placeholder="name****" value="<%= author.name %>" name="name" class="form-control" required>
+    </div>
+
+    <div class="mb-3">
+        <label for="name-input">Email</label>
+        <input type="text" placeholder="email****" value="<%= author.email %>" name="email" class="form-control" required>
+    </div>
+
+    <button type="submit" class="btn btn-warning">Submit</button>
+</form>
+
+<%- include('../partials/footer.ejs') %>

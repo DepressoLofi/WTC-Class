@@ -1,0 +1,49 @@
+<%- include('../partials/header.ejs') %>
+
+<div class="m-5">
+    <a class="btn btn-warning ms-5" href="/blogs/create">Create +</a>
+    
+    <div class="w-75 mt-5 mx-auto">
+        <table class="table bg-white shadow p-3 rounded">
+            <thead>
+                <tr>
+                    <th scope="col">Image</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Content</th>
+                    <th scope="col">Author</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Created at</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% blogs.forEach(blog => { %>
+                    <tr>
+                        <td>
+                            <% if (blog.photo) { %>
+                                <img src="/uploads/<%= blog.photo %>" alt="Blog Photo" style="max-width: 80px; height: auto;">
+                            <% } else { %>
+                                -
+                                <% } %>
+                        </td>
+                        
+                        <td><%= blog.title %></td>
+                        <td><%= blog.content ? blog.content : '-' %></td>
+                        <td><%= blog.author ? blog.author : '-' %></td>
+                        <td><%= blog.category ? blog.category : '-' %></td>
+                        <td><%= blog.created_at %></td>
+                        <td>
+                            <a href="/blogs/edit/<%= blog.id %>" class="btn btn-primary">Edit</a>
+                            
+                            <form action="/blogs/delete/<%= blog.id %>" method="POST" class="d-inline">
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>    
+                        </td>
+                    </tr>             
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<%- include('../partials/footer.ejs') %>
