@@ -8,4 +8,12 @@
 - mysql
 - prisma
 - typeorm
+- react
+
+
+Framework learned
+- Ejs 
+- Express
+- Nest Js
+- React
   
